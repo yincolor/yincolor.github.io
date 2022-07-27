@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 新 Bootstrap5 核心 CSS 文件 -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+  <!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+  <!--  popper.min.js 用于弹窗、提示、下拉菜单 -->
+  <script src="https://cdn.staticfile.org/popper.js/2.9.3/umd/popper.min.js"></script>
+  <script src="./script.js"></script>
+  <style>
+    .hidden{
+      display: none;
+    }
+    .show{
+      display: block;
+    }
+    .card-body{
+      white-space: pre-wrap;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <nav>
+      <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-info-tab" data-bs-toggle="tab" data-bs-target="#nav-info" type="button" role="tab" aria-controls="nav-info">人物</button>
+        <button class="nav-link" id="nav-attr-tab" data-bs-toggle="tab" data-bs-target="#nav-attr" type="button" role="tab" aria-controls="nav-attr">属性</button>
+        <button class="nav-link" id="nav-equip-tab" data-bs-toggle="tab" data-bs-target="#nav-equip" type="button" role="tab" aria-controls="nav-equip">装备</button>
+        <button class="nav-link" id="nav-pack-tab" data-bs-toggle="tab" data-bs-target="#nav-pack" type="button" role="tab" aria-controls="nav-pack">背包</button>
+        <button class="nav-link" id="nav-skill-tab" data-bs-toggle="tab" data-bs-target="#nav-skill" type="button" role="tab" aria-controls="nav-skill">技能</button>
+        <button class="nav-link" id="nav-hist-tab" data-bs-toggle="tab" data-bs-target="#nav-hist" type="button" role="tab" aria-controls="nav-hist">经历</button>
+        <button class="nav-link" id="nav-note-tab" data-bs-toggle="tab" data-bs-target="#nav-note" type="button" role="tab" aria-controls="nav-note">备注</button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
+        <hr>
+        <div class="row">
+          <div class="btn-group">
+            <button class="btn btn-outline-primary btn-sm">导入数据</button>
+            <button class="btn btn-outline-primary btn-sm">导出数据</button>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md">
+            <div class="input-group mb-3">
+              <span class="input-group-text">名称</span>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="input-group mb-3">
+              <span class="input-group-text">性别</span>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="input-group mb-3">
+              <span class="input-group-text">种族</span>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="input-group mb-3">
+              <span class="input-group-text">年龄</span>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="input-group mb-3">
+              <span class="input-group-text">资金</span>
+              <input type="text" class="form-control" placeholder="单位:铜币">
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="input-group mb-3">
+              <span class="input-group-text">经验</span>
+              <input type="text" class="form-control" placeholder="EXP">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label for="other_intro">其他介绍</label>
+            <textarea class="form-control" id="other_intro" name="text" rows="5" placeholder="国籍、信仰、身份、冒险等级、所属组织等写在这里"></textarea>
+          </div>
+          <div class="col-md">
+            <label for="bg_intro">背景介绍</label>
+            <textarea class="form-control" id="bg_intro" name="text"  rows="5"></textarea>
+          </div>
+        </div>
+        <hr>
+        <hr>
+      </div>
+      <div class="tab-pane fade" id="nav-attr" role="tabpanel" aria-labelledby="nav-attr-tab">
+        <hr>
+        <div class="row">
+          <table class="table table-bordered">
+            <thead>
+              <tr> <th>基本属性</th> <th>数值</th> <th>检定公式</th> <th>基本属性</th> <th>数值</th> <th>检定公式</th> </tr>
+            </thead>
+            <tbody>
+              <tr> <td>力量</td> <td>1</td> <td>.R1D12+0</td> <td>体质</td> <td>2</td> <td>.R1D12+0</td> </tr>
+              <tr> <td>敏捷</td> <td>3</td> <td>.R1D12+0</td> <td>智力</td> <td>4</td> <td>.R1D12+0</td> </tr>
+              <tr> <td>意志</td> <td>5</td> <td>.R1D12+0</td> <td>感知</td> <td>6</td> <td>.R1D12+0</td> </tr>
+              <tr> <td>魅力</td> <td>7</td> <td>.R1D12+1</td> </tr>
+            </tbody>
+          </table>
+        </div>
+        <br>
+        <div class="row">
+          <table class="table table-bordered">
+            <tbody>
+              <tr> <td>生命</td> <td>1</td> <td>法力</td> <td>2</td> <td>体力</td> <td>5</td> <td>精神力</td> <td>3</td> </tr>
+              <tr> <td>战技骰</td> <td>4</td> <td>体型</td> <td>7</td> <td>移动速度</td> <td>6</td> <td>负重状态</td> <td>7</td> </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-equip" role="tabpanel" aria-labelledby="nav-equip-tab">
+        <hr>
+        <div class="row">
+            <div class="btn-group">
+              <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#equip_add_dialog">添加装备</button>
+            </div>
+        </div>
+        <hr>
+        <div id="equip_cards">
+        <div class="card">
+          <div class="card-header">铜头盔<div class="btn-group" style="float: right;"><button class="btn btn-outline-primary btn-sm" >修改</button><button class="btn btn-outline-primary btn-sm">删除</button></div></div>
+          <div class="card-body">类型：护甲&#10;部位：头部&#10;介绍：内容内容内容内容内容内容内容内容内容内容内容 </div> 
+          <div class="card-footer">物抗：11111 魔抗：1110 重量：1</div>
+        </div>
+        <br>
+        <div class="card">
+          <div class="card-header">铜甲 类型：护甲 部位：躯干/手臂<div class="btn-group" style="float: right;"><button class="btn btn-outline-primary btn-sm" >修改</button><button class="btn btn-outline-primary btn-sm">删除</button></div></div>
+          <div class="card-body">介绍：内容内容内容内容内容内容内容内容内容内容内容</div> 
+          <div class="card-footer">物抗：1000 魔抗：1110 重量：1</div>
+        </div>
+        <br>
+        <div class="card">
+          <div class="card-header">铜护腿 类型：护甲 部位：腿部<div class="btn-group" style="float: right;"><button class="btn btn-outline-primary btn-sm" >修改</button><button class="btn btn-outline-primary btn-sm">删除</button></div></div>
+          <div class="card-body">介绍：内容内容内容内容内容内容内容内容内容内容内容</div> 
+          <div class="card-footer">物抗：xxxxx 魔抗：0 重量：1</div>
+        </div>
+        <br>
+        <div class="card">
+          <div class="card-header">铁剑 类型：武器 部位：主手<div class="btn-group" style="float: right;"><button class="btn btn-outline-primary btn-sm" >修改</button><button class="btn btn-outline-primary btn-sm">删除</button></div></div>
+          <div class="card-body">介绍：内容内容内容内容内容内容内容内容内容内容内容</div> 
+          <div class="card-footer">伤害：rd6+4 重量：1</div>
+        </div>
+        <br>
+        <div class="card">
+          <div class="card-header">次级治疗药水 | 类型：消耗品 | 部位：快捷栏1<div class="btn-group" style="float: right;"><button class="btn btn-outline-primary btn-sm" >修改</button><button class="btn btn-outline-primary btn-sm">删除</button></div></div>
+          <div class="card-body">介绍：内容内容内容内容内容内容内容内容内容内容内容</div> 
+          <div class="card-footer">效果：使用后回复rd12血量 重量：1</div>
+        </div>
+        <br>
+      </div>
+      </div>
+      <div class="tab-pane fade" id="nav-pack" role="tabpanel" aria-labelledby="nav-pack-tab">
+        <hr>
+        <div class="row">
+            <div class="btn-group">
+              <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#pack_add_dialog">增加物品</button>
+            </div>
+        </div>
+        <hr>
+
+        <div class="card">
+          <div class="card-header">面包 <div class="btn-group" style="float: right;"><button class="btn btn-outline-primary btn-sm" >修改</button><button class="btn btn-outline-primary btn-sm">删除</button></div></div>
+          <div class="card-body">介绍：内容内容内容内容内容内容内容内容内容内容内容</div> 
+          <div class="card-footer">重量1 数量2</div>
+        </div>
+        <br>
+        <div class="card">
+          <div class="card-header">面包<div class="btn-group" style="float: right;"><button class="btn btn-outline-primary btn-sm" >修改</button><button class="btn btn-outline-primary btn-sm">删除</button></div></div>
+          <div class="card-body">介绍：内容内容内容内容内容内容内容内容内容内容内容</div> 
+          <div class="card-footer">重量1 数量2</div>
+        </div>
+        <br>
+        <div class="card">
+          <div class="card-header">面包<div class="btn-group" style="float: right;"><button class="btn btn-outline-primary btn-sm" >修改</button><button class="btn btn-outline-primary btn-sm">删除</button></div></div>
+          <div class="card-body">介绍：内容内容内容内容内容内容内容内容内容内容内容</div> 
+          <div class="card-footer">重量1 数量2</div>
+        </div>
+        <br>
+        <div class="card">
+          <div class="card-header">面包<div class="btn-group" style="float: right;"><button class="btn btn-outline-primary btn-sm" >修改</button><button class="btn btn-outline-primary btn-sm">删除</button></div></div>
+          <div class="card-body">介绍：内容内容内容内容内容内容内容内容内容内容内容</div> 
+          <div class="card-footer">重量1 数量2</div>
+        </div>
+        <br>
+        <div class="card">
+          <div class="card-header">面包<div class="btn-group" style="float: right;"><button class="btn btn-outline-primary btn-sm" >修改</button><button class="btn btn-outline-primary btn-sm">删除</button></div></div>
+          <div class="card-body">介绍：内容内容内容内容内容内容内容内容内容内容内容</div> 
+          <div class="card-footer">重量1 数量2</div>
+        </div>
+        <br>
+      </div>
+      <div class="tab-pane fade" id="nav-skill" role="tabpanel" aria-labelledby="nav-skill-tab">
+        <hr>
+        技能页面
+      </div>
+      <div class="tab-pane fade" id="nav-hist" role="tabpanel" aria-labelledby="nav-hist-tab">
+        <hr>
+        经历页面
+      </div>
+      <div class="tab-pane fade" id="nav-note" role="tabpanel" aria-labelledby="nav-note-tab">
+        <hr>
+        备注页面
+      </div>
+    </div>
+  </div>
+  <!-- 装备提交模态框 -->
+<div class="modal fade" id="equip_add_dialog">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+ 
+      <!-- 模态框头部 -->
+      <div class="modal-header">
+        <h4 class="modal-title">穿戴装备</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+ 
+      <!-- 模态框内容 -->
+      <div class="modal-body">
+        <label for="ead_name">名称</label>
+        <input id="ead_name" class="name" type="text"><br>
+        <label for="ead_place">部位</label>
+        <input id="ead_place" class="place" type="text"><br>
+        <label for="ead_weight">重量</label>
+        <input id="ead_weight" class="weight" type="number"><br>
+        <label for="ead_intro">介绍</label>
+        <textarea id="ead_intro" class="intro" type="text" rows="6"> </textarea> <br>
+        <label for="ead_type">类型</label>
+        <select name="" id="ead_type" class="equip_type" onchange="onEquipDialogSelectChanged()">
+          <option value="armor" selected>护甲</option>
+          <option value="weapon">武器</option>
+          <option value="shortcuts">快捷栏</option>
+        </select>
+        <div class="equip_other_input armor show">
+          <label for="eri_wk">物抗</label>
+          <input id="eri_wk" class="wk" type="text"><br>
+          <label for="eri_mk">魔抗</label>
+          <input id="eri_mk" class="mk" type="text"><br>
+        </div>
+        <div class="equip_other_input weapon hidden">
+          <label for="eri_sh">伤害公式</label>
+          <input id="eri_sh" class="sh" type="text"><br>
+        </div>
+        <div class="equip_other_input shortcuts hidden">
+          <label for="eri_xg">效果</label>
+          <input id="eri_xg" class="xg" type="text"><br>
+        </div>
+        <br>
+      </div>
+ 
+      <!-- 模态框底部 -->
+      <div class="modal-footer">
+        <div class="btn-group" >
+          <button class="btn btn-outline-primary" onclick="onEquipAddDialogBtnClicked()" >确定并穿戴</button>
+          <button class="btn btn-danger" id="close_equip_add_dialog_btn" data-bs-dismiss="modal" >取消穿戴</button>
+        </div>
+        <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button> -->
+      </div>
+ 
+    </div>
+  </div>
+</div>
+<!-- 物品提交模态框 -->
+<div class="modal fade" id="pack_add_dialog">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+ 
+      <!-- 模态框头部 -->
+      <div class="modal-header">
+        <h4 class="modal-title">物品放入背包</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+ 
+      <!-- 模态框内容 -->
+      <div class="modal-body">
+        <label for="pack_add_dialog_name">名称</label>
+        <input id="pack_add_dialog_name" type="text"><br>
+        <label for="pack_add_dialog_num">数量</label>
+        <input id="pack_add_dialog_num" type="number"><br>
+        <label for="pack_add_dialog_weight">重量</label>
+        <input id="pack_add_dialog_weight" type="number"><br><br>
+      </div>
+ 
+      <!-- 模态框底部 -->
+      <div class="modal-footer">
+        <div class="btn-group" >
+          <button class="btn btn-outline-primary" onclick="onPackAddDialogBtnClicked()" >确定</button>
+          <button class="btn btn-danger" id="close_pack_add_dialog_btn" data-bs-dismiss="modal" >取消</button>
+        </div>
+        <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button> -->
+      </div>
+ 
+    </div>
+  </div>
+</div>
+  <!-- <div id="dialog_layer" class="hidden" style="position: fixed; top:0; right:0; left:0;bottom:0; background-color: rgba(255, 255, 255, 1);">
+    <div id="equip_add_dialog" class="hidden" style="padding-left: 20px; padding-right: 20px; padding-top:10px; ">
+      <h4> 穿戴装备 </h4>
+      <label for="ead_name">名称</label>
+      <input id="ead_name" class="name" type="text"><br>
+      <label for="ead_place">部位</label>
+      <input id="ead_place" class="place" type="text"><br>
+      <label for="ead_weight">重量</label>
+      <input id="ead_weight" class="weight" type="number"><br>
+      <label for="ead_intro">介绍</label>
+      <textarea id="ead_intro" class="intro" type="text" rows="6"> </textarea> <br>
+      <label for="ead_type">类型</label>
+      <select name="" id="ead_type" class="equip_type" onchange="onEquipDialogSelectChanged()">
+        <option value="armor" selected>护甲</option>
+        <option value="weapon">武器</option>
+        <option value="shortcuts">快捷栏</option>
+      </select>
+      <div class="equip_other_input armor show">
+        <label for="eri_wk">物抗</label>
+        <input id="eri_wk" class="wk" type="text"><br>
+        <label for="eri_mk">魔抗</label>
+        <input id="eri_mk" class="mk" type="text"><br>
+      </div>
+      <div class="equip_other_input weapon hidden">
+        <label for="eri_sh">伤害公式</label>
+        <input id="eri_sh" class="sh" type="text"><br>
+      </div>
+      <div class="equip_other_input shortcuts hidden">
+        <label for="eri_xg">效果</label>
+        <input id="eri_xg" class="xg" type="text"><br>
+      </div>
+      <br>
+      <div class="btn-group" >
+        <button class="btn btn-outline-primary" onclick="onEquipAddDialogBtnClicked()" >确定并穿戴</button>
+        <button class="btn btn-outline-primary" onclick="onDialogCancelBtnClicked('equip_add_dialog')" >取消穿戴</button>
+      </div>
+    </div>
+    <div id="pack_add_dialog" class="hidden" style="padding-left: 20px; padding-right: 20px; padding-top:10px; ">
+      <h4> 增加/修改 物品 </h4>
+      <label for="pack_add_dialog_name">名称</label>
+      <input id="pack_add_dialog_name" type="text"><br>
+      <label for="pack_add_dialog_num">数量</label>
+      <input id="pack_add_dialog_num" type="number"><br>
+      <label for="pack_add_dialog_weight">重量</label>
+      <input id="pack_add_dialog_weight" type="number"><br><br>
+      <div class="btn-group" >
+        <button class="btn btn-outline-primary">确定</button>
+        <button class="btn btn-outline-primary" onclick="onDialogCancelBtnClicked('pack_add_dialog')" >取消</button>
+      </div>
+    </div>
+  </div> -->
+  
+</body>
+
+</html>
