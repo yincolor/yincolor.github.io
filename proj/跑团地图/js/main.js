@@ -95,7 +95,4 @@ function resizeCanvasAndDraw(){
 
 (function main(){
     resizeCanvasAndDraw();
-    setInterval(() => {
-        utils.logMinGanCi(); 
-    }, 1000);
 })();
