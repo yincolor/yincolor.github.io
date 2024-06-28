@@ -1,0 +1,31 @@
+html,body{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+.map-container{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.map-box{
+    height: 200px;
+    width: 200px;
+    background-image: url('../img/background.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid #232323;
+}
+#map{
+    height: 10px;
+    width: 10px;
+}

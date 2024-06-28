@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/map.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="controler">
+            <label for="img_input">加载地图图片</label>
+            <input type="file" name="img_input" id="img_input">
+            <button id="add_character">添加角色</button>
+            <button id="remove_character">删除角色</button>
+        </div>
+        <div class="map-container">
+            <div class="map-box">
+                <canvas id="map" width="1280" height="960"></canvas>
+            </div>
+        </div>
+    </div>
+    <dialog id="add_character_dialog">
+        <div style="display: flex; flex-direction: column;gap: 20px;">
+            <div><label for="character_name">角色名称</label><input name="character_name" id="add_character_name" type="text"></div>
+            <div><label for="character_img">角色头像</label><input name="character_img" id="add_character_img" type="file">
+            </div>
+            <div>
+                <button id="add_character_dialog_ok_btn">确定</button>
+                <button id="add_character_dialog_cancel_btn">取消</button>
+            </div>
+        </div>
+    </dialog>
+    <dialog id="remove_character_dialog">
+        <div style="display: flex; flex-direction: column;gap: 20px;">
+            <div><label for="remove_character_name">要删除角色：</label><select id="remove_character_name_selecter"> </select></div>
+            </div>
+            <div>
+                <button id="remove_character_dialog_ok_btn">确定</button>
+                <button id="remove_character_dialog_cancel_btn">取消</button>
+            </div>
+        </div>
+    </dialog>
+    <script src="./js/utils.js"></script>
+    <script src="./js/Scene.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
