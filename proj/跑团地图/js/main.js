@@ -1,5 +1,5 @@
 
-const img_input = document.getElementById('img_input'); 
+const map_img_input = document.getElementById('map_img_input'); 
 
 const add_character_btn = document.getElementById('add_character'); 
 const add_character_dialog_ok_btn = document.getElementById('add_character_dialog_ok_btn'); 
@@ -15,8 +15,10 @@ const map_box = document.getElementsByClassName('map-box')[0];
 const canvas = document.getElementById('map'); 
 
 
-img_input.addEventListener('change', (ev)=>{
-    const f = img_input.files[0]; 
+map_img_input.addEventListener('change', (ev)=>{
+    /** @type {File} */
+    const f = map_img_input.files[0]; 
+    document.title = f.name;  
     scene.loadMapImage(f); 
 },false);
 
@@ -81,7 +83,7 @@ window.addEventListener('resize', () =>{
 
 function resizeCanvasAndDraw(){
     const r = map_container.getBoundingClientRect();
-    const offset_len = 64;
+    const offset_len = 16;
     const map_box_height = r.height - offset_len;
     const map_box_width = r.width - offset_len;
     map_box.style.height = map_box_height + 'px'; 
