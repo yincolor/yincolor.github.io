@@ -18,6 +18,8 @@ const remove_character_btn = document.getElementById('remove_character');
 const remove_character_dialog_ok_btn = document.getElementById('remove_character_dialog_ok_btn');
 const remove_character_dialog_cancel_btn = document.getElementById('remove_character_dialog_cancel_btn');
 
+const show_help_btn = document.getElementById('show_help'); 
+
 const map_container = document.getElementsByClassName('map-container')[0];
 const map_box = document.getElementsByClassName('map-box')[0];
 
@@ -77,7 +79,13 @@ load_hist_map_dialog_ok_btn.onclick = () =>{
     document.getElementById('load_hist_map_dialog').close();
 }
 
-add_character_btn.onclick = () => { document.getElementById('add_character_dialog').showModal(); }
+add_character_btn.onclick = () => { 
+    if(scene.map_img == null){
+        alert('请先加载地图图片，再添加角色！');
+        return; 
+    }
+    document.getElementById('add_character_dialog').showModal(); 
+}
 add_character_dialog_cancel_btn.onclick = () => {
     document.getElementById('add_character_img').value = "";
     document.getElementById('add_character_dialog').close();
@@ -102,6 +110,10 @@ add_character_dialog_ok_btn.onclick = () => {
 }
 
 add_hist_character_btn.onclick = () =>{ 
+    if(scene.map_img == null){
+        alert('请先加载地图图片，再添加角色！');
+        return; 
+    }
     /** @type {HTMLSelectElement} */
     const selecter = document.getElementById('add_hist_character_name_selecter') ; 
     selecter.options.length = 0; 
@@ -131,6 +143,10 @@ add_hist_character_dialog_ok_btn.onclick = () =>{
 }
 
 remove_character_btn.onclick = () => {
+    if(scene.map_img == null){
+        alert('当前地图图片为空，无需删除角色！');
+        return; 
+    }
     const remove_character_name_selecter = document.getElementById('remove_character_name_selecter');
     remove_character_name_selecter.options.length = 0;
     const name_list = Object.keys(scene.characters);
@@ -153,6 +169,10 @@ remove_character_dialog_ok_btn.onclick = () => {
     } else {
         alert("请选择要删除的角色");
     }
+}
+
+show_help_btn.onclick = () =>{
+    utils.showHelp(); 
 }
 
 window.addEventListener('resize', () => {

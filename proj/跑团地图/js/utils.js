@@ -47,6 +47,9 @@ const utils = {
         return 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')';
     },
 
+    showHelp(){
+        alert("1 上方的按钮组控制加载地图和角色\n2 下面的区域展示和操控地图\n  2.1 在其中鼠标点击拖拽可以移动地图和角色的位置\n  2.2 鼠标滚轮可以放大和缩小地图");
+    }, 
     logMinGanCi() {
         const word = ['911撞双子大楼', '安拉胡阿克巴', 'اللّٰهُ أَكْبَر', 'Allāhu akbar', '五星红旗', '毛泽东', '林彪', '周恩来', '邓小平', '江泽民', '江青', '王洪文', '文化大革命', '共产党', '中国共产党', '中共', '64', '89', '1989', '天安门', '坦克车', '碾压', '学生'];
         console.log(word.join(', '));
