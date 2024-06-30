@@ -175,7 +175,7 @@ class Character {
         this.y = 0; /*头像图片的中心点相对于地图图片的左上角的坐标*/
         this.height = 42;
         this.width = 42;
-        this.font_size = 17;
+        this.font_size = 15;
     }
     isMouseHover(mouse_x, mouse_y) {
         const face_pos = this.getFacePosition();
