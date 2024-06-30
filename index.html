@@ -1,36 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的工具箱</title>
     <style>
+        html,body{margin: 0; padding: 0;}
         .container {
             position: absolute;
-            height: 100%;
-            width: 100%;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
             display: flex;
-            justify-content: center;
-            align-items:start;
+            flex-direction: column;
+            justify-content: start;
+            align-items:center;
+            gap: 15px;
+            padding: 10px;
         }
-        table, th, td{
-            border: 1px black solid;
+        .website-box{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
+        .box-row{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center; 
+        }
+
     </style>
 </head>
 
 <body>
     <div class="container">
-        <table>
-            <tbody>
-                <tr>
-                    <td><a class="card-title" href="proj/bezier/index.html">贝塞尔曲线</a></td>
-                    <td><a class="card-title" href="proj/跑团地图/index.html">跑团地图工具</a></td>
-                    <td><a class="card-title" href="proj/骰子分布统计/index.html">骰子分布统计</a></td>
-                </tr>
-            </tbody>
-        </table>
+        <div>* 别人的工具 *</div>
+        <div class="website-box">
+            <div class="box-row">
+                <a href="https://www.seaart.me/zhCN">海艺AI画图</a>
+                <a href="https://openmao.panchuang.net">Open猫AI聊天</a>
+                <a href="https://developer.mozilla.org/zh-CN/docs/Web">MDN web开发技术文档</a>
+            </div>
+            <div class="box-row">
+                <a href="https://github.com/">Github</a>
+            </div>
+        </div>
+        <div>* 自己的工具 *</div>
+        <div class="website-box">
+            <div class="box-row">
+                <a href="proj/bezier/index.html">贝塞尔曲线</a>
+                <a href="proj/跑团地图/index.html">跑团地图工具</a>
+                <a href="proj/骰子分布统计/index.html">骰子分布统计</a>
+            </div>
+        </div>
     </div>
 </body>
 
