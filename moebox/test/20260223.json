@@ -1,0 +1,20 @@
+[
+    {
+        "anime_id":0,
+        "vod_name":"刻刻", 
+        "vod_pubdate":"2026-02-03",
+        "vod_content":"这是简介"
+    },
+    {
+        "anime_id":1,
+        "vod_name":"虹猫蓝兔", 
+        "vod_pubdate":"2026-02-03",
+        "vod_content":"这是简介"
+    },
+    {
+        "anime_id":2,
+        "vod_name":"猪猪侠", 
+        "vod_pubdate":"2026-01-01",
+        "vod_content":"这是简介"
+    }
+]
