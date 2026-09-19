@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行动顺序</title>
+    <style>
+        button{
+            min-height: 50px;
+            padding: 10px;
+        }
+        #res-list li{
+            padding: 5px 5px;
+        }
+        #res-list li:nth-child(even){
+            background-color: #cfcfcf;
+        }
+        #res-list li:nth-child(odd){
+            background-color: #efefef;
+        }
+    </style>
+</head>
+<body>
+    <textarea name="" id="user-list" cols="40" rows="5" placeholder="例如：小明（名称）|速度（<100）"></textarea>
+    <br><br>
+    <button onclick="updateUserList()">上传、更新用户列表</button>
+    <br>
+    <hr>
+    <ol id="res-list">
+
+    </ol>
+    <button onclick="updateOnStep()">计算一步结果</button>
+    <hr>
+</body>
+
+<script>
+    /*初始化全局变量*/
+    var GLOBAL = {
+        USER_LIST: [], /*名称，速度，当前移动长度*/
+        RES_LIST:[],
+        TRACK_LEN: 100,
+        STEP_FUNC:null,
+    }
+</script>
+
+<script>
+    function createItem(name){
+        const li = document.createElement('li');
+        li.classList.add('item');
+        li.innerText = name;
+        return li;
+    }
+    function appendList(liItem){
+        document.getElementById('res-list').append(liItem);
+    }
+    function clearList(){
+        document.getElementById('res-list').innerHTML = '';
+    }
+
+    function updateUserList(){
+        const str = document.getElementById('user-list').value;
+        console.log(str);
+        let _userList = [];
+        for(const u of str.split('\n')){
+            const uL = u.split('|');
+            _userList.push({ name:uL[0], speed: parseInt(uL[1]), len:0 });
+
+        }
+        GLOBAL.USER_LIST = _userList;
+    }
+
+    function* nextUser(){
+        const userNum = GLOBAL.USER_LIST.length;
+        const userList = GLOBAL.USER_LIST;
+        let isContinue = true;
+        while (isContinue && userNum > 0) {
+            for(let i=0;i<userNum;i++){
+                userList[i].len += userList[i].speed;
+                if(GLOBAL.TRACK_LEN <= userList[i].len){
+                    userList[i].len = 0;
+                    const req = yield userList[i].name;
+                    if(req == -1) {
+                        isContinue = false;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    function updateOnStep(){
+        if(GLOBAL.USER_LIST.length <= 0){
+            alert('报错：没有空的用户列表，请更新！');
+            return -1;
+        }
+        if(GLOBAL.STEP_FUNC == null){
+            GLOBAL.STEP_FUNC = nextUser();
+        }
+        const name = GLOBAL.STEP_FUNC.next().value;
+        appendList(createItem(name));
+    }
+</script>
+</html>
